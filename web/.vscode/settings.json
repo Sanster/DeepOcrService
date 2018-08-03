@@ -1,19 +1,18 @@
 {
-    "files.exclude": {
-      "**/.git": true, // this is a default value
-      "**/.ds_store": true, // this is a default value
-  
-      "**/node_modules": true, // this excludes all folders
-      // named "node_modules" from
-      // the explore tree
-  
-      // alternative version
-      "node_modules": true // this excludes the folder
-      // only from the root of
-      // your workspace
-    },
-    "editor.formatonsave": true,
-    "prettier.semi": false,
-    "prettier.singlequote": true
-  }
-  
+  "files.exclude": {
+    "**/.git": true, // this is a default value
+    "**/.ds_store": true, // this is a default value
+
+    "**/node_modules": true, // this excludes all folders
+    // named "node_modules" from
+    // the explore tree
+
+    // alternative version
+    "node_modules": true // this excludes the folder
+    // only from the root of
+    // your workspace
+  },
+  "editor.formatOnSave": true,
+  "prettier.semi": false,
+  "prettier.singleQuote": true
+}
