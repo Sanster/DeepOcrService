@@ -22,14 +22,21 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    minHeight: 500
+  },
+  img: {
+    maxWidth: 600
+  },
+  table: {
+    minWidth: 300
   }
 })
 
 class App extends Component {
   state = {
     image: null,
-    ocrResult: null
+    ocrResult: []
   }
 
   handleFileSelect = event => {
@@ -41,16 +48,17 @@ class App extends Component {
     }
     reader.readAsDataURL(selectedFile)
 
-    // const fd = new FormData()
-    // fd.append('img', selectedFile, selectedFile.name)
-    // axios.post('http://localhost:5000/ocr', fd).then(res => {
-    //   console.log(res)
-    // })
+    const fd = new FormData()
+    fd.append('img', selectedFile, selectedFile.name)
+    axios.post('http://localhost:5000/ocr', fd).then(res => {
+      this.setState({ ocrResult: res.data.results })
+    })
   }
 
   render() {
     const { classes } = this.props
     const { image, ocrResult } = this.state
+    console.log(ocrResult)
 
     return (
       <div className={classes.root}>
@@ -58,11 +66,30 @@ class App extends Component {
         <Grid container spacing={24}>
           <Grid item xs={6}>
             <Paper className={classes.paper}>
-              <img src={image} width={500} />
+              <img src={image} className={classes.img} />
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper className={classes.paper}>xs=6</Paper>
+            <Paper className={classes.paper}>
+              <Table className={classes.table}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Text</TableCell>
+                    <TableCell>Position</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {ocrResult.map((n, i) => {
+                    return (
+                      <TableRow key={i}>
+                        <TableCell>{n.text}</TableCell>
+                        <TableCell>{n.position}</TableCell>
+                      </TableRow>
+                    )
+                  })}
+                </TableBody>
+              </Table>
+            </Paper>
           </Grid>
         </Grid>
       </div>

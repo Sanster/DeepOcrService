@@ -73,15 +73,12 @@ def process(img):
     ocr_result = recoer.recognize(rois, img)
     print("CRNN time: %.03fs" % (time.time() - start_time))
 
-    res = {
-        "words_result_num": len(rois),
-        "words_result": [],
-    }
+    res = {"results": []}
 
     for i in range(len(rois)):
-        res["words_result"].append({
-            'location': rois[i],
-            'words': ocr_result[i]
+        res["results"].append({
+            'position': rois[i],
+            'text': ocr_result[i]
         })
 
     return res
