@@ -92,4 +92,4 @@ class Recoer:
 
 
 if __name__ == "__main__":
-    recoer = Recoer('./tf_crnn/data/chars/chn.txt', './data/models/raw_crnn.pb')
+    recoer = Recoer('./tf_crnn/data/chars/chn.txt', './data/models/crnn.pb')

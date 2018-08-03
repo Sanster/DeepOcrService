@@ -1,4 +1,3 @@
 .idea/
 __pycache__/
-data/models/ctpn.pb
-data/models/raw_crnn.pb
+data/models/*.pb

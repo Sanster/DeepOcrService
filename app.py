@@ -11,7 +11,7 @@ from detector import Detector
 from recoer import Recoer
 
 detector = Detector('./data/models/ctpn.pb')
-recoer = Recoer('./tf_crnn/data/chars/chn.txt', './data/models/raw_crnn.pb')
+recoer = Recoer('./tf_crnn/data/chars/chn.txt', './data/models/crnn.pb')
 
 app = Flask(__name__, static_folder='web/build')
 CORS(app)

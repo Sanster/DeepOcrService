@@ -1,3 +1,4 @@
+Cython
 flask
 flask-cors
 numpy
