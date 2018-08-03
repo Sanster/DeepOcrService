@@ -1,6 +1,9 @@
 # DeepOcrService
 ![](./data/images/Screenshot.png)
 
+Todo:
+- [ ] English crnn model
+
 # Requirements
 - Ubuntu 16.04
 - Tensorflow-gpu >= 1.6
