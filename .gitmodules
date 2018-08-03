@@ -1,0 +1,6 @@
+[submodule "tf_ctpn"]
+	path = tf_ctpn
+	url = https://github.com/Sanster/tf_ctpn.git
+[submodule "tf_crnn"]
+	path = tf_crnn
+	url = https://github.com/Sanster/tf_crnn.git

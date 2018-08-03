@@ -1,0 +1,4 @@
+flask
+numpy
+opencv-python
+tensorflow-gpu
