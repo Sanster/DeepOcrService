@@ -114,7 +114,8 @@ class App extends Component {
   }
 
   getPositionStr(position) {
-    return `${position[0]}, ${position[1]}, ${position[2]}, ${position[3]}`
+    return `${position[0]}, ${position[1]}, ${position[2] -
+      position[0]}, ${position[3] - position[1]}`
   }
 
   render() {
@@ -149,14 +150,16 @@ class App extends Component {
                 <Table className={classes.table}>
                   <TableHead className={classes.tableHead}>
                     <TableRow>
+                      <TableCell>No.</TableCell>
                       <TableCell>Text</TableCell>
-                      <TableCell>Position</TableCell>
+                      <TableCell>Position(Left, Top, Width, Height)</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {ocrResult.map((n, i) => {
                       return (
                         <TableRow key={i}>
+                          <TableCell>{i + 1}</TableCell>
                           <TableCell>{n.text}</TableCell>
                           <TableCell>
                             {this.getPositionStr(n.position)}
