@@ -80,15 +80,30 @@ class Detector:
 
         rois, _ = proposal_layer(rpn_cls_prob, rpn_bbox_pred, im_info, 'TEST', anchors, Detector.NUM_ANCHORS)
 
-        boxes = rois[:, 1:5] / im_scales[0]
-        pred_boxes = _clip_boxes(boxes, img.shape)
-
+        boxes = rois[:, 1:5]
+        boxes = _clip_boxes(boxes, im_blob.shape[1:3])
         scores = rois[:, 0]
 
-        text_lines = self.textdetector.detect(pred_boxes, scores[:, np.newaxis], img.shape[:2])
-
+        text_lines = self.textdetector.detect(boxes, scores[:, np.newaxis], im_blob.shape[1:3])
         text_lines = self.get_line_boxes(text_lines)
-        return text_lines
+
+        text_lines = self.recover_scale(text_lines, im_scales[0])
+        print("detect %d text lines" % len(text_lines))
+
+        text_lines = _clip_boxes(text_lines, img.shape)
+
+        return text_lines.tolist()
+
+    def recover_scale(self, boxes, scale):
+        """
+        :param boxes: [(x1, y1, x2, y2)]
+        :param scale: image scale
+        :return:
+        """
+        tmp_boxes = []
+        for b in boxes:
+            tmp_boxes.append([int(x / scale) for x in b])
+        return np.asarray(tmp_boxes)
 
     def get_line_boxes(self, boxes, scale=1):
         """
