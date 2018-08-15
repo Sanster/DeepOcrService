@@ -49,6 +49,9 @@ class Recoer:
         return out
 
     def recognize(self, rois, img):
+        if len(rois) == 0:
+            return []
+
         img_rois = self.get_roi_imgs(rois, img)
 
         batch_imgs = self.get_batch_imgs(img_rois)
