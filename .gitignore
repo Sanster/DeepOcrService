@@ -3,3 +3,4 @@ __pycache__/
 data/models/*.pb
 web/build/static/css/*.map
 web/build/static/js/*.map
+output/

@@ -32,11 +32,20 @@ cd tf_ctpn/lib && make
 ```
 
 
-# Start server
+# Start web app
 ```
 python3 app.py
 ```
 
 Visit http://localhost:5000
+
+# Do infer on commond line
+```
+python3 infer.py \
+--img_dir= \
+--viz
+```
+
+Press `ESC` to exit. Press `Space` to continue.
 
 
