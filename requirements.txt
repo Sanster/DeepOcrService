@@ -1,4 +1,5 @@
 Cython
+easydict
 flask
 flask-cors
 numpy
