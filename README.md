@@ -28,7 +28,7 @@ Download models:
 
 Build Cpython code:
 ```
-cd tf_ctpn/lib && make
+make -C tf_ctpn/lib
 ```
 
 
@@ -39,7 +39,7 @@ python3 app.py
 
 Visit http://localhost:5000
 
-# Do infer on commond line
+# Do infer on command line
 ```
 python3 infer.py \
 --img_dir= \
