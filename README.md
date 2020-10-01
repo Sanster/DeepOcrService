@@ -8,7 +8,7 @@ Todo:
 - Ubuntu 16.04
 - Tensorflow-gpu >= 1.6
 
-# How to use
+# Steps required
 
 Get code:
 ```
@@ -39,7 +39,7 @@ python3 app.py
 
 Visit http://localhost:5000
 
-# Do infer on command line
+# Do infer on command line:
 ```
 python3 infer.py \
 --img_dir= \
